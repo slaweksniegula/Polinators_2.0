@@ -26,8 +26,11 @@ public class UserServiceImpl implements UserService {
                 .userName(createUserDto.getUserName())
                 .emailAddress(createUserDto.getEmailAddress())
                 .password(createUserDto.getPassword())
+                .userAddress(createUserDto.getUserAddress())
+                .beeHives(createUserDto.getBeeHives())
                 .build();
         repository.save(user);
+//        beeHivesRepository.save(BeeHives.builder().build());
     }
 
     @Override
@@ -42,7 +45,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> findUserById(Integer id) {
-        return Optional.empty();
+
+        return repository.findById(id);
     }
 
     @Override

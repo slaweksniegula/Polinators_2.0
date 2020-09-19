@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Builder
@@ -32,14 +33,14 @@ public class User {
 
     private String password;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user")
-//    private UserAddress userAddress;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user")
-//    private BeeHives beeHives;
-//
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fc_User")
+    private UserAddress userAddress;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    private List<BeeHives> beeHives;
+
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "user")
 //    private Crops crops;
@@ -63,7 +64,7 @@ public class User {
                 Objects.equals(userName, user.userName) &&
                 Objects.equals(emailAddress, user.emailAddress) &&
                 Objects.equals(password, user.password) &&
-//                Objects.equals(userAddress, user.userAddress) &&
+                Objects.equals(userAddress, user.userAddress) &&
 //                Objects.equals(beeHives, user.beeHives) &&
 //                Objects.equals(crops, user.crops) &&
                 Objects.equals(userFunction, user.userFunction);
@@ -71,8 +72,8 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, name, userName, emailAddress, password,
- //               userAddress, beeHives, crops,
+        return Objects.hash(id, firstName, name, userName, emailAddress, password, userAddress,
+                // beeHives, crops,
                 userFunction);
     }
 }

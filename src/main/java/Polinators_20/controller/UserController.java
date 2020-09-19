@@ -32,4 +32,10 @@ public class UserController {
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok(userRepository.findAll());
     }
+
+    @GetMapping
+    public ResponseEntity<User> findById(@RequestParam Integer id) {
+        return ResponseEntity.ok(userRepository.findUserById(id)
+                .orElse(null));
+    }
 }
