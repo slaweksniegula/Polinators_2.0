@@ -28,12 +28,6 @@ public class UserController {
         this.userService = useruserService;
     }
 
-    @PostMapping(value = "/create")
-    public ResponseEntity<Void> create(@RequestBody CreateUserDto userDto) {
-        userService.saveUser(userDto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
 
     @GetMapping(value = "/all")
     public String allUsers(Model model) {

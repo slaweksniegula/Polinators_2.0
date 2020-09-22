@@ -16,16 +16,16 @@ public class UserPasswordValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "valid.password");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirm", "valid.passwordConfirm");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirmation", "valid.passwordConfirmation");
 
-        CreateUserDto dto = (CreateUserDto) o;
-        if (!dto.getPassword().equals(dto.getPasswordConfirmation())) {
-            errors.rejectValue("passwordConfirmation", "valid.passwordConfirmDiff");
-        }
+       CreateUserDto dto = (CreateUserDto) o;
+//        if (!dto.getPassword().equals(dto.getPasswordConfirmation())) {
+//            errors.rejectValue("passwordConfirmation", "valid.passwordConfirmationDiff");
+//        }
 
-        String firstName = dto.getFirstName();
-        if (firstName.length() < 3 || firstName.length() > 25) {
-            errors.rejectValue("firstName", "valid.firstNameLength");
-        }
+//        String userName = dto.getUserName();
+//        if (userName.length() < 3 || userName.length() > 25) {
+//            errors.rejectValue("userName", "valid.userNameLength");
+//        }
     }
 }

@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/todos").authenticated()
                 .and().formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/todos")
+                .defaultSuccessUrl("/main")
                 .and().logout()
                 .permitAll()
                 .and().headers().frameOptions().disable()
