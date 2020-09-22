@@ -1,13 +1,12 @@
 package Polinators_20.dto;
 
-import Polinators_20.model.BeeHives;
 import Polinators_20.model.UserAddress;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class CreateUserDto {
+public class UserDto {
+
+    private Integer id;
 
     private String firstName;
 
@@ -18,9 +17,4 @@ public class CreateUserDto {
     private String userName;
 
     private String emailAddress;
-
-    private String password;
-
-    private String passwordConfirmation;
-
 }

@@ -27,10 +27,8 @@ public class UserServiceImpl implements UserService {
                 .emailAddress(createUserDto.getEmailAddress())
                 .password(createUserDto.getPassword())
                 .userAddress(createUserDto.getUserAddress())
-                .beeHives(createUserDto.getBeeHives())
                 .build();
         repository.save(user);
-//        beeHivesRepository.save(BeeHives.builder().build());
     }
 
     @Override

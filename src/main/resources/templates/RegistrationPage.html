@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Rejestracja</title>
+    <meta name="description" content="Rejestracja">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body content="text/html" charset="UTF-8">
+
+<h1>Rejestracja</h1>
+
+<form action="/user/create" method="POST">
+
+    <strong>Jestem:</strong>
+    <br>
+    <label>
+        <input type="radio" name="occupation" value="farmer"> Rolnikiem
+    </label> <br>
+    <label>
+        <input type="radio" name="occupation" value="beekeeper"> Pszczelarzem
+    </label>
+    <br><br>
+    <section>
+        <label> Imię
+            <input name="firstName" placeholder="Wpisz swoje imię">
+        </label>
+        <label> Nazwisko
+            <input name="name" placeholder="Wpisz swoje nazwisko">
+        </label>
+
+    </section>
+    <h3>Adres zamieszkania:</h3> <br>
+    <label> Ulica
+        <input name="street">
+    </label>
+    <label> Numer domu
+        <input name="house-number">
+    </label><br><br>
+
+    <label> Kod pocztowy
+        <input name="post-code">
+    </label>
+    <label> Miejscowość
+        <input name="city">
+    </label><br><br>
+    <section>
+        <label> Nazwa użytkownia
+            <input name="userName" placeholder="Wpisz swój nick">
+            Pod tą nazwą będą Cię widzieli inni użytkownicy
+        </label>
+        <br><br>
+    </section>
+    Twój adres email
+    <input type="email" name="emailAddress" placeholder="Adres email">
+    Powtórz adres email
+    <input type="email" name="emailConfirmation" placeholder="Adres email">
+    <br><br>
+    Hasło
+    <input type="password" name="password">
+    Powtórz hasło
+    <input type="password" name="passwordConfirmation">
+    <br><br>
+    <input type="submit" value="Zarejestruj">
+</form>
+
+</body>
+
+</html>

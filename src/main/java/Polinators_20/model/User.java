@@ -38,7 +38,7 @@ public class User {
     private UserAddress userAddress;
 
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="User_Id")
     private List<BeeHives> beeHives;
 
 //    @OneToOne(cascade = CascadeType.ALL)
