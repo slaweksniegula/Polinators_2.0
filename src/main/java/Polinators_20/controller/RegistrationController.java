@@ -1,7 +1,7 @@
 package Polinators_20.controller;
 
 import Polinators_20.dto.CreateUserDto;
-import Polinators_20.model.User;
+
 import Polinators_20.repository.UserActionRepository;
 import Polinators_20.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -47,7 +44,7 @@ public class RegistrationController {
     }
 
 
-    @GetMapping("/register")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") @Validated CreateUserDto createUserDto, BindingResult bindingResult, Model model){
 
         if (bindingResult.hasErrors()){
@@ -56,6 +53,6 @@ public class RegistrationController {
 
         userService.saveUser(createUserDto);
 
-        return "redirect:/login";
+        return "redirect:/user/login";
     }
 }

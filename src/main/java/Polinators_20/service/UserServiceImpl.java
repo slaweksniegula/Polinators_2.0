@@ -7,6 +7,7 @@ import Polinators_20.dto.EditPersonDto;
 import Polinators_20.model.User;
 import Polinators_20.repository.UserActionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,9 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserActionRepository repository;
@@ -25,7 +29,7 @@ public class UserServiceImpl implements UserService {
                 .name(createUserDto.getName())
                 .userName(createUserDto.getUserName())
                 .emailAddress(createUserDto.getEmailAddress())
-                .password(createUserDto.getPassword())
+                .password(passwordEncoder.encode(createUserDto.getPassword()))
                 .userAddress(createUserDto.getUserAddress())
                 .build();
         repository.save(user);

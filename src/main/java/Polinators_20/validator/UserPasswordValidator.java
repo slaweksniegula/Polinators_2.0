@@ -19,13 +19,13 @@ public class UserPasswordValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConfirmation", "valid.passwordConfirmation");
 
        CreateUserDto dto = (CreateUserDto) o;
-//        if (!dto.getPassword().equals(dto.getPasswordConfirmation())) {
-//            errors.rejectValue("passwordConfirmation", "valid.passwordConfirmationDiff");
-//        }
+        if (!dto.getPassword().equals(dto.getPasswordConfirmation())) {
+            errors.rejectValue("passwordConfirmation", "valid.passwordConfirmationDiff");
+        }
 
-//        String userName = dto.getUserName();
-//        if (userName.length() < 3 || userName.length() > 25) {
-//            errors.rejectValue("userName", "valid.userNameLength");
-//        }
+        String userName = dto.getUserName();
+        if (userName.length() < 3 || userName.length() > 25) {
+            errors.rejectValue("userName", "valid.userNameLength");
+        }
     }
 }
